@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # EShoppingZone-Frontend
 =======
 ## 🎨 EShoppingZone - Frontend 
@@ -150,3 +150,6 @@ Using **Context API**:
 
 ## 📁 Project Structure (High-Level)
 >>>>>>> ea87a9a ([Sankalp_Agarwal] Add description of EShoppingZone frontend)
+=======
+# EShoppingZoneFrontend
+>>>>>>> b659259 (Initial commit)
