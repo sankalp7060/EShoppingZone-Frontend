@@ -1,4 +1,4 @@
-## 🎨 EShoppingZone - Frontend 
+## 🎨 EShoppingZone - Frontend
 
 ### 🎯 Overview
 The frontend of **EShoppingZone** is built as a modern Single Page Application (SPA) using React. It provides a seamless interface for Customers, Merchants, and Admins to interact with the platform.
