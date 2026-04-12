@@ -1,0 +1,17 @@
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-viewport {
+    flex: 1;
+    padding-top: 80px; /* Fixed navbar height */
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .main-viewport {
+        padding-top: 68px; /* Responsive navbar height */
+    }
+}
