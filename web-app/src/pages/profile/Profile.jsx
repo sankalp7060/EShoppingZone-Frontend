@@ -16,7 +16,7 @@ import {
 import Layout from '../../components/layout/Layout';
 import { 
     User, MapPin, Shield, Edit3, Trash2, CheckCircle, 
-    Plus, X, Camera, Save, ChevronRight, Lock
+    Plus, X, Save, ChevronRight, Lock
 } from 'lucide-react';
 import './Profile.css';
 
@@ -187,10 +187,6 @@ const Profile = () => {
                                     alt="Avatar" 
                                     className="avatar-main"
                                 />
-                                <label className="avatar-camera-btn" title="Change photo">
-                                    {avatarUploading ? <span style={{fontSize:'12px'}}>...</span> : <Camera size={16} />}
-                                    <input type="file" accept="image/*" style={{display:'none'}} onChange={handleAvatarChange} />
-                                </label>
                                 <span className={`role-badge ${rc.badge}`}>{rc.label}</span>
                             </div>
                             <h2>{profile?.fullName}</h2>
@@ -291,16 +287,16 @@ const Profile = () => {
                             <section className="profile-section">
                                 <div className="section-header">
                                     <h1>Shipping Addresses</h1>
-                                    <button className="edit-btn" onClick={() => setShowAddrForm(!showAddrForm)}>
+                                    <button className="add-address-btn" onClick={() => setShowAddrForm(!showAddrForm)}>
                                         <Plus size={16} />
-                                        <span>Add New</span>
+                                        <span>Add New Address</span>
                                     </button>
                                 </div>
 
                                 {showAddrForm && (
                                     <div className="addr-overlay">
                                         <div className="address-form-modal">
-                                            <h3 style={{marginBottom: '20px', color: 'white'}}>{editingAddrId ? 'Edit Address' : 'Add New Address'}</h3>
+                                            <h3>{editingAddrId ? 'Edit Address' : 'Add New Address'}</h3>
                                             <form onSubmit={handleAddressSubmit} className="checkout-addr-form">
                                                 <div className="form-group-inline">
                                                     <input placeholder="House No." value={addrForm.houseNumber} onChange={e => setAddrForm({...addrForm, houseNumber: e.target.value})} required />
@@ -317,13 +313,13 @@ const Profile = () => {
                                                     <input placeholder="Pincode" value={addrForm.pincode} onChange={e => setAddrForm({...addrForm, pincode: e.target.value})} required />
                                                     <input placeholder="Landmark (Optional)" value={addrForm.landmark} onChange={e => setAddrForm({...addrForm, landmark: e.target.value})} />
                                                 </div>
-                                                <div className="form-actions" style={{justifyContent: 'flex-end', gap: '15px', marginTop: '20px'}}>
-                                                    <button type="button" className="edit-btn" onClick={() => {
+                                                <div className="addr-modal-actions">
+                                                    <button type="button" className="addr-cancel-btn" onClick={() => {
                                                         setShowAddrForm(false);
                                                         setEditingAddrId(null);
                                                         setAddrForm({ houseNumber: '', streetName: '', colonyName: '', city: '', state: '', pincode: '', landmark: '' });
-                                                    }} style={{background: 'rgba(255,255,255,0.05)', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '8px'}}>Cancel</button>
-                                                    <button type="submit" className="save-btn" style={{background: '#3b82f6', color: 'white', padding: '10px 20px', border: 'none', borderRadius: '8px', fontWeight: 'bold'}}>{editingAddrId ? 'Update' : 'Save'} Address</button>
+                                                    }}>Cancel</button>
+                                                    <button type="submit" className="addr-save-btn">{editingAddrId ? 'Update' : 'Save'} Address</button>
                                                 </div>
                                             </form>
                                         </div>

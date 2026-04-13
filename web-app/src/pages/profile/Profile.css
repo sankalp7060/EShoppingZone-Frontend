@@ -62,29 +62,8 @@
     z-index: 10;
 }
 
-.avatar-camera-btn {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 32px;
-    height: 32px;
-    background: #ff6e40;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    cursor: pointer;
-    border: 2px solid #08090b;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 11;
-}
 
-.avatar-camera-btn:hover {
-    transform: scale(1.1) rotate(5deg);
-    background: #fff;
-    color: #ff6e40;
-}
+
 
 .bg-orange { background: #ff6e40; color: #fff; }
 .bg-blue { background: #3b82f6; color: #fff; }
@@ -398,10 +377,180 @@
 
 .empty-tab img { width: 120px; margin-bottom: 24px; opacity: 0.1; }
 
-@keyframes fadeIn {
+/* ── Address Modal ────────────────────────────────────────── */
+.addr-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 0.2s ease;
+}
+
+.address-form-modal {
+    background: #111215;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 40px;
+    width: 100%;
+    max-width: 560px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.address-form-modal h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.address-form-modal h3::before {
+    content: '';
+    width: 4px;
+    height: 22px;
+    background: #ff6e40;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.checkout-addr-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group-inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.checkout-addr-form input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px 18px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.25s;
+    width: 100%;
+}
+
+.checkout-addr-form input:focus {
+    border-color: rgba(255, 110, 64, 0.5);
+    background: rgba(255, 110, 64, 0.03);
+    box-shadow: 0 0 0 3px rgba(255, 110, 64, 0.08);
+}
+
+.checkout-addr-form input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.addr-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.addr-cancel-btn {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.addr-cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+}
+
+.addr-save-btn {
+    background: linear-gradient(135deg, #ff6e40 0%, #ff3b00 100%);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 12px;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255, 59, 0, 0.25);
+    transition: all 0.2s;
+}
+
+.addr-save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(255, 59, 0, 0.35);
+}
+
+/* "Add New" button in section header — accent style */
+.add-address-btn {
+    background: rgba(255, 110, 64, 0.1);
+    border: 1px solid rgba(255, 110, 64, 0.25);
+    color: #ff6e40;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.add-address-btn:hover {
+    background: #ff6e40;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(255, 59, 0, 0.25);
+}
+
+.def-tag {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 110, 64, 0.12);
+    color: #ff6e40;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255, 110, 64, 0.2);
+}
+
+.addr-line {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.addr-loc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes slideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
 
 @media (max-width: 1000px) {
     .profile-layout { grid-template-columns: 1fr; }
