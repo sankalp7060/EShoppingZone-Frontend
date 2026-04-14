@@ -24,8 +24,8 @@ const OurStoryModal = ({ isOpen, onClose }) => {
                     </p>
                 </div>
                 <div className="modal-actions-centered">
-                    <button className="pro-btn-primary" onClick={onClose}>Continue Journey</button>
-                    <button className="pro-btn-secondary" onClick={onClose}>Close</button>
+                    <button className="story-btn-primary" onClick={onClose}>Continue Journey</button>
+                    <button className="story-btn-secondary" onClick={onClose}>Close</button>
                 </div>
             </div>
         </div>
